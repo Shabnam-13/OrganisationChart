@@ -1,0 +1,169 @@
+* {margin: 0; padding: 0;}
+
+.tree{
+	width: max-content;
+    height: 0;
+    position: relative;
+    z-index: -1;
+}
+
+.tree ul {
+    padding-top: 20px; position: relative;
+}
+
+.tree li {
+	float: left; 
+    text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 20px 5px 0 5px;
+}
+
+/* Connections */
+.tree li::before, .tree li::after{
+	content: '';
+	position: absolute; top: 0; right: 50%;
+	border-top: 1px solid #ccc;
+	width: 50%; height: 20px;
+}
+.tree li::after{
+	right: auto; left: 50%;
+	border-left: 1px solid #ccc;
+}
+
+.tree li:only-child::after, .tree li:only-child::before {
+	display: none;
+}
+
+.tree li:only-child{ 
+    padding-top: 0;
+}
+
+.tree li:first-child::before, .tree li:last-child::after{
+	border: 0 none;
+}
+
+.tree li:last-child::before{
+	border-right: 1px solid #ccc;
+	border-radius: 0 5px 0 0;
+}
+.tree li:first-child::after{
+	border-radius: 5px 0 0 0;
+}
+
+.tree ul ul::before{
+	content: '';
+	position: absolute; top: 0; left: 50%;
+	border-left: 1px solid #ccc;
+	width: 0; height: 20px;
+}
+
+/* Item css */
+.tree li .node{
+    position: relative;
+    font-family: arial, verdana, tahoma;
+	font-size: 14px;
+    color: white;
+    text-decoration: none;
+	display: inline-block;
+	border-radius: 5px;
+	border: 1px solid #78adfd;
+	padding: 5px 10px;
+    background: #78adfd;
+}
+
+.tree li .node h2{
+    margin-bottom: 0.5rem;
+}
+
+.tree li .node input{
+    height: 25px;
+    border: none;
+	font-size: 14px;
+    margin-bottom: 1rem;
+}
+
+.tree li .node input:focus{
+    outline: 0;
+}
+
+.tree li .node input,.renameBtn{
+	display: none;
+}
+
+/* buttons */
+.addBtn,.removeBtn,.renameBtn{
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: 0.3rem;
+}
+
+.addBtn,.removeBtn{
+    display: inline-block;
+}
+
+.addBtn{
+    color: #d9e8fb;
+}
+
+.removeBtn{
+    color: #FB3E6E;
+}
+
+.renameBtn{
+    color:rgb(11 147 37);
+}
+
+/* confirm modal */
+.confirmModal{
+    width: 100%;
+    height: 100vh;
+    background: #00000073;
+    position: relative;
+    display: none;
+}
+
+.confirmModal .confirmCard{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 30px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 26px 1px rgb(0 0 0 / 30%);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.confirmMessage{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    color: #2F384F;
+    font-family: sans-serif;
+}
+
+.yesBtn, .noBtn{
+    border: 1px solid #2F384F;
+    box-sizing: border-box;
+    border-radius: 3px;
+    height: 35px;
+    width: 100px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.yesBtn{
+    margin-right: 0.2rem;
+    background: #2F384F;
+    color:#fff ;
+}
+
+.noBtn{
+    background: transparent;
+    color: #2F384F;
+}
